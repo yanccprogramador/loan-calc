@@ -43,10 +43,8 @@ class LoanController extends Controller
 
     public function notValid(array $tax, array $payload)
     {
-        return (isset($payload['instituicoes']) && count($payload['instituicoes']) > 0
-                && !in_array($tax['instituicao'], $payload['instituicoes']))
-            || (isset($payload['convenios']) && count($payload['convenios']) > 0
-                && !in_array($tax['convenio'], $payload['convenios']))
+        return (isset($payload['instituicoes']) && !in_array($tax['instituicao'], $payload['instituicoes']))
+            || (isset($payload['convenios']) && !in_array($tax['convenio'], $payload['convenios']))
             || (isset($payload['parcela']) && $payload['parcela'] != $tax['parcelas']);
     }
 }

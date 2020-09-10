@@ -25,9 +25,9 @@ class LoanRequest extends FormRequest
     {
         return [
             //
-            'valor_emprestimo' => 'required|numeric|regex:/^\d+(\.\d{1,2})?$/',
-            'instituicoes' => 'nullable|array',
-            'convenios' => 'nullable|array',
+            'valor_emprestimo' => 'required|numeric|regex:/^\d+(\.\d{1,2})?$/|min:1',
+            'instituicoes' => 'nullable|array|min:1',
+            'convenios' => 'nullable|array|min:1',
             'parcela' => 'nullable|numeric'
         ];
     }
@@ -39,8 +39,11 @@ class LoanRequest extends FormRequest
             'valor_emprestimo.required' => 'Campo obrigatório',
             'valor_emprestimo.regex' => 'Campo tipo float',
             'valor_emprestimo.numeric' => 'Campo tipo float',
+            'valor_emprestimo.min' => 'Precisa ser pelo menos 1',
             'instituicoes.array' => 'Precisa ser do tipo array',
+            'instituicoes.min' => 'Precisa ter no minimo um elemento',
             'convenios.array' => 'Precisa ser do tipo array',
+            'convenios.min' => 'Precisa ter no minimo um elemento',
             'parcela.required' => 'Campo obrigatório',
             'parcela.numeric' => 'Campo tipo numérico',
         ];
