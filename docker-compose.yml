@@ -1,0 +1,10 @@
+version: '2'
+
+services:
+  api-loan-calc:
+    image: ambientum/php:7.4-nginx
+    container_name: api-loan-calc
+    volumes:
+      - .:/var/www/app
+    ports:
+      - "80:8080"
